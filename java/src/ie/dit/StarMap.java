@@ -20,10 +20,41 @@ public class StarMap extends PApplet
 
     public void setup()
     {
-        loadData();
-        printStars();
+        //loadData();
+        //printStars();
         border = width * 0.05f;
+		
+		//Testing the map function
+		System.out.println(
+			map(25,20,30,30,40)
+		);
+		
+		System.out.println(
+			map1(25,20,30,30,40)
+		);
+		
+		System.out.println(
+			map(0,-100,200,100,500)
+		);
+		
+		System.out.println(
+			map1(0,-100,200,100,500)
+		);
+		
+		Star s = new Star();
+		s.setDisplayName("DIT");
+		stars.add(s);
+		
+		Star s1 = stars.get(0);
+		
+		s1.setDisplayName("TU Dublin");
+		
+		System.out.println(s);
+		System.out.println(stars.get(0));
+		System.out.println(s1);
+		
     }
+	
 
     public void loadData()
     {
@@ -94,13 +125,23 @@ public class StarMap extends PApplet
 
         }
     } 
+	
+	private float map1 (float a, float b, float c, float d, float e)
+	{
+		float range1 = c - b;
+		float howFar = a - b;
+		
+		float range2 = e - d;
+		
+		return d + (howFar / range1) * range2;
+		
+	}
 
     public void mouseClicked()
     {
-<<<<<<< HEAD
 		for(int i = 0; i < stars.size(); i++)
 		{
-			Star s = Stars.get(i);
+			Star s = stars.get(i);
 			float x = map(s.getxG(), -5, 5, border, width - border);
             float y = map(s.getyG(), -5, 5, border, height - border);
 			
@@ -120,9 +161,6 @@ public class StarMap extends PApplet
 		}
         //mouseX, mouseY;    
 		
-=======
-            
->>>>>>> d85640236ecd5b7cc0c4b1632cfc8cc97e76eb0c
     }
 
     public void draw()
@@ -130,6 +168,7 @@ public class StarMap extends PApplet
         background(0);
         drawGrid();
         drawStars();
+		mouseClicked();
     }
 
     private ArrayList<Star> stars = new ArrayList<Star>();
