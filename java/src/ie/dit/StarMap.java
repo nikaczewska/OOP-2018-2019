@@ -8,6 +8,9 @@ import processing.data.TableRow;
 
 public class StarMap extends PApplet
 {
+	int selected1 = -1;
+	int selected2 = -1;
+	
     public void settings()
     {
         size(500, 500);
@@ -90,9 +93,30 @@ public class StarMap extends PApplet
         }
     } 
 
-    public void mousePressed()
+    public void mouseClicked()
     {
+		for(int i = 0; i < stars.size(); i++)
+		{
+			Star s = Stars.get(i);
+			float x = map(s.getxG(), -5, 5, border, width - border);
+            float y = map(s.getyG(), -5, 5, border, height - border);
+			
+			if(dist(mouseX,mouseY, x, y) < s.getAbsMag() / 2)
+			{
+				if(selected1 == -1)
+				{
+					selected1 = i;
+					break;
+				}
+				
+				if(selected2 == -1)
+				{
+					selected2 = i;
+				}
+			}
+		}
         //mouseX, mouseY;    
+		
     }
 
     public void draw()

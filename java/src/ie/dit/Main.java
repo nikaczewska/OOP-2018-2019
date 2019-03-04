@@ -29,7 +29,7 @@ public class Main
 		
 	}
 	
-	public void starMap()
+	public void StarMap()
 	{
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new StarMap());
@@ -39,6 +39,6 @@ public class Main
 	public static void main(String[] args)
 	{
 		Main main = new Main();
-		main.starMap();			
+		main.StarMap();			
 	}
 }
