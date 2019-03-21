@@ -1,4 +1,7 @@
+
 package ie.dit;
+
+import java.util.ArrayList;
 
 import processing.core.PVector;
 
@@ -11,8 +14,8 @@ public class AIShip
     private YASC yasc;
 
     private float rotation;
-	
-	private ArrayList<PVector> waypoints = new ArrayList<PVector>();
+
+    private ArrayList<PVector> waypoints = new ArrayList<PVector>(); 
 
     public AIShip(YASC yasc, float x, float y, float speed, float size)
     {
@@ -21,12 +24,11 @@ public class AIShip
         forward = new PVector(0, -1);
         this.speed = speed;
         this.size = size;
-		
-		for (int i = 0; i < 5; i++)
-		{
-			waypoints.add(new PVector(yasc.random(0,yasc.width)
-		}
 
+        for(int i = 0 ; i < 5 ; i ++)
+        {
+            waypoints.add(new PVector(yasc.random(0, yasc.width), yasc.random(0, yasc.height)));
+        }
     }
 
     public void render()
@@ -132,4 +134,5 @@ public class AIShip
     }
 
     
+>>>>>>> c1ae9d34e1cde2c9526f3423de14b64d3852b5b2
 }
