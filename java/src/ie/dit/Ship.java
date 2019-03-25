@@ -30,6 +30,7 @@ public class Ship
         yasc.rotate(rotation);
         
         float halfSize = size / 2;
+        yasc.stroke(0);
         yasc.line(- halfSize, halfSize, 0, - halfSize);
         yasc.line(0, - halfSize
         , halfSize, halfSize);
@@ -46,8 +47,7 @@ public class Ship
         forward.y = - (float) Math.cos(rotation);
         if (yasc.checkKey('w'))
         {
-            pos.x += forward.x;
-            pos.y += forward.y;
+            pos.add(forward);
         }
 
         if (yasc.checkKey('s'))
@@ -65,6 +65,12 @@ public class Ship
         if (yasc.checkKey('d'))
         {
             rotation += 0.1f;
+        }
+
+        if (yasc.checkKey(' '))
+        {
+            Bullet b = new Bullet(yasc, pos.x, pos.y, rotation);
+            yasc.bullets.add(b);
         }
     }
 
