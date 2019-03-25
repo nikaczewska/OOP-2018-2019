@@ -134,5 +134,8 @@ public class AIShip
     }
 
     
->>>>>>> c1ae9d34e1cde2c9526f3423de14b64d3852b5b2
+pos.x -= forward.x;
+            pos.y -= forward.y;
+			
+			//pos.add(forward);  does same thing as above
 }

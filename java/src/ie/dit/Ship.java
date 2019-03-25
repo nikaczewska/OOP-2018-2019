@@ -12,6 +12,7 @@ public class Ship
 
     private float rotation;
 
+	
     public Ship(YASC yasc, float x, float y, float speed, float size)
     {
         this.yasc = yasc;
@@ -53,6 +54,7 @@ public class Ship
         {
             pos.x -= forward.x;
             pos.y -= forward.y;
+			
         }
 
         if (yasc.checkKey('a'))
