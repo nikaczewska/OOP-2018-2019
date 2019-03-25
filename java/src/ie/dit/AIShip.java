@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 package ie.dit;
 
@@ -135,9 +135,9 @@ public class AIShip
     }
 
     
-			pos.x -= forward.x;
+			/*pos.x -= forward.x;
             pos.y -= forward.y;
 			
-			//pos.add(forward);  does same thing as above
+			//pos.add(forward);  does same thing as above*/
 
 }

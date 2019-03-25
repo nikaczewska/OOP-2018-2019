@@ -40,7 +40,7 @@ public class StarMap extends PApplet {
         System.out.println(map1(25, 20, 30, 30, 40));
         System.out.println(map(0, -100, 200, 100, 500));
         System.out.println(map1(0, -100, 200, 100, 500));
->>>>>>> 76af277bf529f17c2d5302b15ecfee421804c177
+
     }
 	
 
@@ -99,7 +99,7 @@ public class StarMap extends PApplet {
             fill(255);
             text(s.getDisplayName(), x + 20, y);
         }
-<<<<<<< HEAD
+
     } 
 	
 	private float map1 (float a, float b, float c, float d, float e)
@@ -137,11 +137,11 @@ public class StarMap extends PApplet {
 		}
         //mouseX, mouseY;    
 		
-=======
+
     }
 
     // This is how the map function works!
-    private float map1(float a, float b, float c, float d, float e) {
+   /* private float map1(float a, float b, float c, float d, float e) {
         float range1 = c - b;
         float howFar = a - b;
 
@@ -168,16 +168,15 @@ public class StarMap extends PApplet {
                 }
             }
         }
->>>>>>> 76af277bf529f17c2d5302b15ecfee421804c177
-    }
+
+    }*/
 
     public void draw() {
         background(0);
         drawGrid();
         drawStars();
-<<<<<<< HEAD
+
 		mouseClicked();
-=======
 
         // If I have selected one of the stars
         if (selected1 != -1 && selected2 == -1) {
@@ -204,7 +203,6 @@ public class StarMap extends PApplet {
                     height - 25);
         }
 
->>>>>>> 76af277bf529f17c2d5302b15ecfee421804c177
     }
 
     private ArrayList<Star> stars = new ArrayList<Star>();

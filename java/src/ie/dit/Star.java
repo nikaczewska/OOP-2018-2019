@@ -105,15 +105,6 @@ public class Star
         zG = row.getFloat("Zg");
         absMag = row.getFloat("AbsMag");
     }
-	
-	public Star ()
-	{
-		
-	}
 
-    public Star()
-    {
-        
-    }
 
 }
