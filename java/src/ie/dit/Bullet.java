@@ -2,7 +2,7 @@ package ie.dit;
 
 import processing.core.PVector;
 
-public class Bullet
+public class Bullet extends GameObject
 {
     private PVector pos;
     private PVector forward;
@@ -12,10 +12,7 @@ public class Bullet
 
     public Bullet(YASC yasc, float x, float y, float rotation)
     {
-        this.yasc = yasc;
-        pos = new PVector(x, y);
-        forward = new PVector(0, -1);
-        this.rotation = rotation; 
+        super(yasc, x, y, 0, 5);
         speed = 5;
     }  
 
