@@ -4,12 +4,6 @@ import processing.core.PVector;
 
 public class Bullet extends GameObject
 {
-    private PVector pos;
-    private PVector forward;
-    private float rotation;
-    private float speed;
-    private YASC yasc;
-
     public Bullet(YASC yasc, float x, float y, float rotation)
     {
         super(yasc, x, y, 0, 5);
@@ -33,94 +27,30 @@ public class Bullet extends GameObject
 
         // pos += forward * speed
         pos.add(PVector.mult(forward, speed));
-		
-		if(pos.x < 0)
-		{
-			pos.x = yasc.width - pos.x;
-		}
-		
-		if(pos.y > yasc.height)
-		{
-			pos.y = yasc.height - pos.y;
-		}
-		
-		alive += yasc.timeDelta;
-		if (alive >= 5.0)
-		{
-			yasc.bullets.remove(this);
-		}
-    }
-	
-	float alive;
 
-    /**
-     * @return the pos
-     */
-    public PVector getPos() {
-        return pos;
+        if (pos.x < 0)
+        {
+            pos.x = yasc.width;
+        }
+        if (pos.x > yasc.width)
+        {
+            pos.x = 0;
+        }
+        if (pos.y < 0)
+        {
+            pos.y = yasc.height;
+        }
+        if (pos.y > yasc.height)
+        {
+            pos.y = 0;
+        }
+        alive += yasc.timeDelta;
+        if (alive >= 5.0)
+        {
+            yasc.gameObjects.remove(this);
+        }
     }
 
-    /**
-     * @param pos the pos to set
-     */
-    public void setPos(PVector pos) {
-        this.pos = pos;
-    }
+    float alive;
 
-    /**
-     * @return the forward
-     */
-    public PVector getForward() {
-        return forward;
-    }
-
-    /**
-     * @param forward the forward to set
-     */
-    public void setForward(PVector forward) {
-        this.forward = forward;
-    }
-
-    /**
-     * @return the rotation
-     */
-    public float getRotation() {
-        return rotation;
-    }
-
-    /**
-     * @param rotation the rotation to set
-     */
-    public void setRotation(float rotation) {
-        this.rotation = rotation;
-    }
-
-    /**
-     * @return the speed
-     */
-    public float getSpeed() {
-        return speed;
-    }
-
-    /**
-     * @param speed the speed to set
-     */
-    public void setSpeed(float speed) {
-        this.speed = speed;
-    }
-
-    /**
-     * @return the yasc
-     */
-    public YASC getYasc() {
-        return yasc;
-    }
-
-    /**
-     * @param yasc the yasc to set
-     */
-    public void setYasc(YASC yasc) {
-        this.yasc = yasc;
-    }
-    
 }
