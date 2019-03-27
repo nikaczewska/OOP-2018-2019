@@ -11,6 +11,8 @@ public class AIShip extends GameObject
     float size;
     private ArrayList<PVector> waypoints = new ArrayList<PVector>(); 
 
+    float health = 100;
+
     public AIShip(YASC yasc, float x, float y, float speed, float size)
     {
        super(yasc, x, y, 0, 5);
@@ -44,6 +46,7 @@ public class AIShip extends GameObject
             yasc.stroke(255, 0, 0);
             yasc.line(a.x, a.y, b.x, b.y);
         }
+        
     }
 
     int current = 0;
@@ -59,6 +62,18 @@ public class AIShip extends GameObject
         {
             current = (current + 1) % waypoints.size();
         }
+
+        /*for(int i = yasc.gameObjects.size() - 1; i >= 0; i--)
+        {
+            yasc.text("Health " + health, 60, 150);
+            GameObject b = yasc.gameObjects.get(i) ;
+
+            if(b == yasc.gameObjects.get(i))
+            {
+                health--;
+            }
+       
+        }*/
     }    
 
 }

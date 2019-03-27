@@ -6,8 +6,7 @@ public class Bullet extends GameObject
 {
     public Bullet(YASC yasc, float x, float y, float rotation)
     {
-        super(yasc, x, y, 0, 5);
-        speed = 5;
+        super(yasc, x, y, rotation, 5);
     }  
 
     public void render()

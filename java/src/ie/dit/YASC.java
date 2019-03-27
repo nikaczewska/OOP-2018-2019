@@ -45,6 +45,13 @@ public class YASC extends PApplet
         background(255);
         
         fill(0);
+        text("GameObjects: " + gameObjects.size(),50,100);
+        for(int i = gameObjects.size()-1; i >= 0; i--)
+        {
+            GameObject b = gameObjects.get(i);
+            b.render();
+            b.update();
+        }
 
     }
 

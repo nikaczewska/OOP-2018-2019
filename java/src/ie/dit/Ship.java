@@ -5,6 +5,7 @@ import processing.core.PVector;
 public class Ship extends GameObject
 {
     private float size;
+    private float fireRate;
 
     public Ship(YASC yasc, float x, float y, float speed, float size)
     {
@@ -59,8 +60,12 @@ public class Ship extends GameObject
 
         if (yasc.checkKey(' '))
         {
-            Bullet b = new Bullet(yasc, pos.x, pos.y, rotation);
-            yasc.gameObjects.add(b);
+            fireRate += yasc.timeDelta;
+            if(fireRate >= 1.0 && yasc.gameObjects.size() <= 20)
+            {
+                Bullet b = new Bullet(yasc, pos.x, pos.y, rotation);
+                yasc.gameObjects.add(b);
+            }
         }
     }
 
