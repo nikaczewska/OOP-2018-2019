@@ -5,12 +5,22 @@ import processing.core.PVector;
 public class Ship extends GameObject
 {
     private float size;
+<<<<<<< HEAD
     private float fireRate;
+=======
+
+    public int fireRate;
+
+    private float toPass;
+    private float ellapsed;
+>>>>>>> 51acfd7ae55f1ba358822aa7cc2102e3144503d0
 
     public Ship(YASC yasc, float x, float y, float speed, float size)
     {
         super(yasc, x, y, 0, speed);
         this.size = size;
+        fireRate = 20;
+        toPass = 1 / (float) fireRate;
 
     }
 
@@ -34,6 +44,7 @@ public class Ship extends GameObject
 
     public void update()
     {
+
         forward.x = (float) Math.sin(rotation);
         forward.y = - (float) Math.cos(rotation);
         if (yasc.checkKey('w'))
@@ -58,15 +69,15 @@ public class Ship extends GameObject
             rotation += 0.1f;
         }
 
-        if (yasc.checkKey(' '))
+        if (yasc.checkKey(' ') && ellapsed >= toPass)
         {
-            fireRate += yasc.timeDelta;
-            if(fireRate >= 1.0 && yasc.gameObjects.size() <= 20)
-            {
-                Bullet b = new Bullet(yasc, pos.x, pos.y, rotation);
-                yasc.gameObjects.add(b);
-            }
+            PVector spawnPoint = PVector.add(pos, PVector.mult(forward, 25));
+            Bullet b = new Bullet(yasc, spawnPoint.x, spawnPoint.y, rotation + yasc.random(-0.1f, 0.1f));
+            yasc.gameObjects.add(b);
+            ellapsed = 0;
         }
+        ellapsed += yasc.timeDelta;
+        yasc.text("Ellapsed: "+ ellapsed, 10, 200);
     }
 
     public void setSize(float size) {
