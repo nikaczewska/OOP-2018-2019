@@ -5,15 +5,11 @@ import processing.core.PVector;
 public class Ship extends GameObject
 {
     private float size;
-<<<<<<< HEAD
-    private float fireRate;
-=======
 
     public int fireRate;
 
     private float toPass;
     private float ellapsed;
->>>>>>> 51acfd7ae55f1ba358822aa7cc2102e3144503d0
 
     public Ship(YASC yasc, float x, float y, float speed, float size)
     {
